@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Tue Jun 14 09:23:47 2022
+# Make data base, printed on Tue Jun 14 12:56:03 2022
 
 # Variables
 
@@ -19,11 +16,6 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-LC_CTYPE = UTF-8
-# environment
- 
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
@@ -50,15 +42,15 @@ INFOPATH = /opt/homebrew/share/info:
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/xw/gvtx8bws187_kkqf8qxcw9y00000gn/T/vscode-ipc-c80c8176-66bf-455c-b921-d9c174eb41e9.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/xw/gvtx8bws187_kkqf8qxcw9y00000gn/T/vscode-ipc-df0a6edd-ebab-4474-bdfc-d1dfac280d3d.sock
 # environment
-VSCODE_CWD = /Users/sabirbarahi/Documents/ipro/product-service
+VSCODE_CWD = /
 # environment
 PATH = /opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-LaunchInstanceID = 3A1715B4-BCED-422D-8241-016560848134
+LaunchInstanceID = 176738EB-DE57-42F2-AE3B-6F20DBC62012
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -66,7 +58,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.nyohfPYiVu/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.6OxhTTOg2O/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -86,8 +78,6 @@ HOME = /Users/sabirbarahi
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CLI = 1
-# environment
 VSCODE_CODE_CACHE_PATH = /Users/sabirbarahi/Library/Application Support/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
 LOGNAME = sabirbarahi
@@ -101,32 +91,24 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
 # environment
-LC_TERMINAL = iTerm2
-# environment
-SHLVL = 3
+SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = sabirbarahi
 # makefile
 .DEFAULT_GOAL := 
-# default
-MAKECMDGOALS := all
-# environment
-TERM_SESSION_ID = w2t0p2:3A266F31-5595-4B1E-8BA7-65A79DCA668A
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
-# environment
-TERM_PROGRAM = iTerm.app
 # default
 .VARIABLES := 
 # environment
@@ -142,11 +124,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 3.4.15
-# environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.10074657.10074663.3DF6FE19-7D1A-4E30-AD48-580953F968A5
-# environment
-LC_TERMINAL_VERSION = 3.4.15
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.10074657.10074663
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -154,11 +132,7 @@ HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w2t0p2:3A266F31-5595-4B1E-8BA7-65A79DCA668A
-# environment
 HOMEBREW_REPOSITORY = /opt/homebrew
-# environment
-COLORFGBG = 7;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 # environment
@@ -168,15 +142,11 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-ITERM_PROFILE = Default
-# environment
 PAGER = less
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186b2
-# environment
-P9K_TTY = old
+SECURITYSESSIONID = 186b1
 # automatic
 ^F = $(notdir $^)
 # default
@@ -186,13 +156,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-_P9K_TTY = /dev/ttys006
-# environment
-VSCODE_PID = 13857
+VSCODE_PID = 600
 # variable set hash-table stats:
-# Load=88/1024=9%, Rehash=0, Collisions=4/108=4%
+# Load=73/1024=7%, Rehash=0, Collisions=1/93=1%
 
 # Pattern-specific Variable Values
 
@@ -200,7 +166,7 @@ VSCODE_PID = 13857
 
 # Directories
 
-# . (device 16777229, inode 13074808): 9 files, no impossibilities.
+# . (device 16777231, inode 13074808): 9 files, no impossibilities.
 
 # 9 files, no impossibilities in 1 directories.
 
@@ -274,6 +240,8 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Tue Jun 14 09:23:47 2022
+# Finished Make data base on Tue Jun 14 12:56:03 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+
