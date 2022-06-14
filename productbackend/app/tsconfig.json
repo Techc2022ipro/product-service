@@ -1,5 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*":                  ["./src/*"],
+      "@controller/*":        ["./src/controller/*"],
+      "@entities/*":          ["./src/entities/*"],
+      "@interfaces/*":        ["./src/interfaces/*"],
+      "@libraries/*":         ["./src/libraries/*"],
+      "@parser/*":            ["./src/parser/*"],
+      "@routes/*":            ["./src/routes/*"],
+      "@schemas/*":           ["./src/schemas/*"],
+      "@services/*":          ["./src/services/*"],
+      "@repositories/*":      ["./src/repositories/*"],
+    },
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

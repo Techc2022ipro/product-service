@@ -1,8 +1,7 @@
+import { fetchProducts } from '@/parser/ProductParser';
 import { Router } from 'express';
 
 const router = Router();
 export default router;
 
-router.get('/' , () => {
-    console.log('you are at product')
-})
+router.get('/' , fetchProducts)
