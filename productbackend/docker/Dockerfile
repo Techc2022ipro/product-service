@@ -7,4 +7,5 @@ COPY ./app/nodemon.json .
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*
 EXPOSE 8000
+EXPOSE 2432
 ENTRYPOINT ["/scripts/entrypoint.sh"]
