@@ -1,7 +1,8 @@
 import { Product as ResponseProduct } from "@/request-response/request-response"
-import { Product } from "@/entities/product";
+import { Product, User } from "@/entities/product";
 export type ProductControllerInterface = {
     fetchProducts(): Promise<ResponseProduct[] | null>
+    feedsProducts(user: User): Promise<Product[] | null>
 }
 
 //service interface 
