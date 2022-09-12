@@ -8,3 +8,8 @@ export const fetchProducts = async (req: Request, res: Response) => {
         return await ProductController.fetchProducts();
     })
 }
+export const feedsProducts = async (req: Request, res: Response) => {
+    ErrorWrapper(res, 'feeds', async () => {
+      return await ProductController.feedsProducts(res.locals.user);
+    })
+}
