@@ -8,6 +8,7 @@ export const ProductController: ProductControllerInterface = {
         if(!products) return null;
         return products;
     },
+
     async feedsProducts(user) {
       if(!user) throw new Unauthorized();
       return null;
