@@ -4,8 +4,18 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const ProductRepositories: ProductRepositoryInterface = {
-    async fetch() {
-        const product = await prisma.product.findMany();
-        return product ? product : null;
-    }
+  async create({uid, name,type, brand, description, price, quantity}) {
+    const product = await prisma.product.create({
+      data: {
+        uid,
+        name,
+        type,
+        brand,
+        description,
+        price,
+        quantity
+      }
+    });
+    return product;
+  }
 }

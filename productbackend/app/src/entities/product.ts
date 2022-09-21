@@ -1,9 +1,12 @@
 export type Product = {
-    pid: number
+    pid?: number
     name: string
     brand: string
+    type: string
     description: string
-    seller: string
+    price: number
+    quantity: number
+    uid: number
 }
 
 export type User = {
@@ -12,3 +15,4 @@ export type User = {
   email: string,
   role: string
 }
+

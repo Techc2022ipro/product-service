@@ -13,8 +13,11 @@ datasource db {
 
 model Product {
   pid                   Int         @id @default(autoincrement())
-  name                  String      @db.VarChar(256)
-  brand                 String      @db.VarChar(256)
+  name                  String      @db.VarChar(60)
+  brand                 String      @db.VarChar(60)
+  type                  String      @db.VarChar(60)
   description           String      @db.VarChar(256)
-  seller                String      @db.VarChar(256)
+  quantity              Int
+  price                 Int
+  uid                   Int
 }
