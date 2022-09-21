@@ -1,16 +1,21 @@
 import { ProductControllerInterface } from "@/interfaces/ProductInterfaces";
-import {Unauthorized} from "@/libraries/libs/error/Errors";
-import { ProductService } from '../service/ProductService';
+import {BadRequest, Unauthorized} from "@/libraries/libs/error/Errors";
+import {CreateProductValidationSchema} from "@/schemas/ProductSchemas";
+import {ProductService} from "@/service/ProductService";
 
 export const ProductController: ProductControllerInterface = {
-    async fetchProducts() {
-        let products = await ProductService.fetchUserService();
-        if(!products) return null;
-        return products;
+    async fetchProductsController() {
+        return "apple";
     },
 
-    async feedsProducts(user) {
+    async feedsProductsController(user) {
       if(!user) throw new Unauthorized();
       return null;
+    }, 
+
+    async createProductsController(query) {
+      const validRequest = await CreateProductValidationSchema.parseAsync(query);
+      if(!validRequest) throw new BadRequest();
+      return await ProductService.createProductsService(query);
     }
 }
