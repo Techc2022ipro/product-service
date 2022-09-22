@@ -17,5 +17,14 @@ export const ProductRepositories: ProductRepositoryInterface = {
       }
     });
     return product;
+  },
+
+  async userProducts(uid) {
+    const products = await prisma.product.findMany({
+      where: {
+        uid
+      }
+    });
+    return products ? products : null;
   }
 }

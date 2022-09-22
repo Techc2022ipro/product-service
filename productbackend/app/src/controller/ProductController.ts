@@ -17,5 +17,9 @@ export const ProductController: ProductControllerInterface = {
       const validRequest = await CreateProductValidationSchema.parseAsync(query);
       if(!validRequest) throw new BadRequest();
       return await ProductService.createProductsService(query);
+    },
+
+    async fetchUserProductsController(query) {
+      return await ProductService.fetchUserProductsService(query);
     }
 }

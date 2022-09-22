@@ -21,3 +21,9 @@ export const createProducts = async (req: Request, res: Response) => {
     return await ProductController.createProductsController(query);
     })
 }
+
+export const getUserProducts = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'user products', async () => {
+      return await ProductController.fetchUserProductsController(res.locals['user'].uid);
+    })
+}
