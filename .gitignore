@@ -1,7 +1,6 @@
-/productfrontend/app/node_modules
-/productfrontend/app/package-lock.json
-/productbackend/app/node_modules
-/productfrontend/app/package-lock.json
+/app/node_modules
+/app/package-lock.json
+/app/package-lock.json
 
-/productfrontend/app/.env
-/productbackend/app/.env
+/app/.env
+/app/.env
