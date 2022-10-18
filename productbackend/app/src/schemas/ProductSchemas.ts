@@ -7,5 +7,5 @@ export const CreateProductValidationSchema = Zod.object({
   type: Zod.string().min(1),
   description: Zod.string().min(1),
   quantity: Zod.number(),
-  price: Zod.number()
+  price: Zod.number(),
 })

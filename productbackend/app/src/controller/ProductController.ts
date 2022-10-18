@@ -5,7 +5,8 @@ import {ProductService} from "@/service/ProductService";
 
 export const ProductController: ProductControllerInterface = {
     async fetchProductsController() {
-        return "apple";
+      const products = await ProductService.fetchProductsService();
+      return products;
     },
 
     async feedsProductsController(user) {
@@ -13,9 +14,9 @@ export const ProductController: ProductControllerInterface = {
       return null;
     }, 
 
-    async createProductsController(query) {
+    async createProductsController(query, image) {
       const validRequest = await CreateProductValidationSchema.parseAsync(query);
       if(!validRequest) throw new BadRequest();
-      return await ProductService.createProductsService(query);
+      return await ProductService.createProductsService(query, image);
     }
 }

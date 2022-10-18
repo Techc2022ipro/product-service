@@ -18,6 +18,8 @@ export const feedsProducts = async (req: Request, res: Response) => {
 export const createProducts = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'create', async () => {
     const query = { uid: res.locals['user'].uid, ...req.body };
-    return await ProductController.createProductsController(query);
+    query.quantity = parseInt(query.quantity); //this is not really nice need to do data manupilation on controller
+    query.price = parseInt(query.price);
+    return await ProductController.createProductsController(query, req.file);
     })
 }
