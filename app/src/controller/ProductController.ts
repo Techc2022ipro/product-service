@@ -5,7 +5,7 @@ import {ProductService} from "@/service/ProductService";
 
 export const ProductController: ProductControllerInterface = {
     async fetchProductsController() {
-        return "apple";
+      return await ProductService.fetchProductsService();
     },
 
     async feedsProductsController(user) {
