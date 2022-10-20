@@ -17,7 +17,9 @@ export const feedsProducts = async (req: Request, res: Response) => {
 
 export const createProducts = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'create', async () => {
-    const query = { uid: res.locals['user'].uid, ...req.body };
+    const query = { uid: res.locals['user'].uid, ...req.body, image: req.file };
+    query.quantity = parseInt(query.quantity);
+    query.price = parseInt(query.price);
     return await ProductController.createProductsController(query);
     })
 }

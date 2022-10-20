@@ -1,4 +1,4 @@
-import { Product, User } from "@/entities/product";
+import { Image, Product, User } from "@/entities/product";
 export type ProductControllerInterface = {
   fetchProductsController(): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
