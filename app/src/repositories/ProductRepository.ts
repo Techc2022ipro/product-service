@@ -8,7 +8,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
     const products = await prisma.product.findMany();
     return products ? products : null;
   }, 
-  async create({uid, name,type, brand, description, price, quantity}) {
+  async create({uid, name,type, brand, description, price, quantity, image}) {
     const product = await prisma.product.create({
       data: {
         uid,
@@ -17,7 +17,8 @@ export const ProductRepositories: ProductRepositoryInterface = {
         brand,
         description,
         price,
-        quantity
+        quantity,
+        image
       }
     });
     return product;

@@ -18,7 +18,18 @@ export type Product = {
     price: number
     quantity: number
     uid: number
-    image?: Image
+    image: string 
+}
+
+export type CreateProductQuery = {
+  name: string
+  brand: string
+  type: string
+  description: string
+  price: number
+  quantity: number
+  uid: number
+  image: Image
 }
 
 export type User = {

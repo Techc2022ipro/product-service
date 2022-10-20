@@ -20,4 +20,5 @@ model Product {
   quantity              Int
   price                 Int
   uid                   Int
+  image                 String      @db.VarChar(256)
 }
