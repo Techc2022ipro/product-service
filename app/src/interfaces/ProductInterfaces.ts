@@ -1,8 +1,8 @@
-import { Image, Product, User } from "@/entities/product";
+import { CreateProductQuery, Image, Product, User } from "@/entities/product";
 export type ProductControllerInterface = {
   fetchProductsController(): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
-  createProductsController(query: Product): Promise<Product>;
+  createProductsController(query: CreateProductQuery): Promise<Product>;
 }
 
 //service interface 

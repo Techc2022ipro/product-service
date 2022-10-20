@@ -18,7 +18,19 @@ export const ProductController: ProductControllerInterface = {
       const validRequest = await CreateProductValidationSchema.parseAsync(query);
       if(!validRequest) throw new BadRequest();
       if(!query.image) throw new BadRequest();
-      const upload = await S3Service.uploadImageService(query.image);
-      return await ProductService.createProductsService(query);
+      const imageKey = await S3Service.uploadImageService(query.image);
+
+      const product = {
+        name: query.name,
+        brand: query.brand,
+        type: query.type,
+        description: query.description,
+        price: query.price,
+        quantity: query.quantity,
+        uid: query.uid,
+        image: imageKey
+      }
+
+      return await ProductService.createProductsService(product);
     }
 }
