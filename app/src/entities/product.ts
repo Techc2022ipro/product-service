@@ -1,3 +1,14 @@
+export type Image = {
+  fieldname: string 
+  originalname: string 
+  encoding: string 
+  mimetype: string 
+  destination: string 
+  filename: string 
+  path: string
+  size: number 
+}
+
 export type Product = {
     pid?: number
     name: string
@@ -7,6 +18,7 @@ export type Product = {
     price: number
     quantity: number
     uid: number
+    image?: Image
 }
 
 export type User = {

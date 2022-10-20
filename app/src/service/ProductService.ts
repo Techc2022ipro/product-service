@@ -6,7 +6,6 @@ export const ProductService: ProductServiceInterface = {
     return await ProductRepositories.fetch();
   },
   async createProductsService(query) {
-    console.log("here")
     return await ProductRepositories.create(query);
   },
 }
