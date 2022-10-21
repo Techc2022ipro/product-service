@@ -17,11 +17,7 @@ export const feedsProducts = async (req: Request, res: Response) => {
 
 export const searchProducts = async (req: Request, res: Response) => {
     ErrorWrapper(res, 'search', async () => {
-      const query = {
-        keyword: req.body.keyword,
-        slug: req.params.slug
-      }
-      return await ProductController.searchProductsController(query)
+      return await ProductController.searchProductsController(req.body.keyword, req.params.slug);
     })
 }
 

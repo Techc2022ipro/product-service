@@ -2,7 +2,7 @@ import { CreateProductQuery, Product, SearchQuery, User } from "@/entities/produ
 export type ProductControllerInterface = {
   fetchProductsController(): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
-  searchProductsController(query: SearchQuery): Promise<Product[] | null>;
+  searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;
   createProductsController(query: CreateProductQuery): Promise<Product>;
 }
 
