@@ -1,5 +1,5 @@
 import VerifyToken from '@/libraries/middlewares/VerifyToken';
-import { createProducts, feedsProducts, fetchProducts} from '@/parser/ProductParser';
+import { createProducts, feedsProducts, fetchProducts, searchProducts} from '@/parser/ProductParser';
 import { Router } from 'express';
 import multer from 'multer';
 
@@ -18,4 +18,5 @@ export default router;
 
 router.get('/' , fetchProducts);
 router.get('/feeds', VerifyToken, feedsProducts);
+router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);

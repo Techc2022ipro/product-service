@@ -32,5 +32,9 @@ export const ProductController: ProductControllerInterface = {
       }
 
       return await ProductService.createProductsService(product);
+    },
+
+    async searchProductsController(query) {
+      return await ProductService.searchProductsService(query);
     }
 }

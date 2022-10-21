@@ -39,3 +39,7 @@ export type User = {
   role: string
 }
 
+export type SearchQuery = {
+  keyword: string
+  slug: string
+}
