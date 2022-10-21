@@ -15,6 +15,16 @@ export const feedsProducts = async (req: Request, res: Response) => {
     })
 }
 
+export const searchProducts = async (req: Request, res: Response) => {
+    ErrorWrapper(res, 'search', async () => {
+      const query = {
+        keyword: req.body.keyword,
+        slug: req.params.slug
+      }
+      return await ProductController.searchProductsController(query)
+    })
+}
+
 export const createProducts = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'create', async () => {
     const query = { uid: res.locals['user'].uid, ...req.body, image: req.file };

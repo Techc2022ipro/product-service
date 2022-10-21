@@ -8,4 +8,7 @@ export const ProductService: ProductServiceInterface = {
   async createProductsService(query) {
     return await ProductRepositories.create(query);
   },
+  async searchProductsService(query) {
+    return await ProductRepositories.search(query);
+  }
 }
