@@ -1,6 +1,6 @@
 import { ProductControllerInterface } from "@/interfaces/ProductInterfaces";
 import {BadRequest, Unauthorized} from "@/libraries/libs/error/Errors";
-import {CreateProductValidationSchema} from "@/schemas/ProductSchemas";
+import {CreateProductValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
 import {ProductService} from "@/service/ProductService";
 import {S3Service} from "@/service/S3Service";
 
@@ -34,7 +34,13 @@ export const ProductController: ProductControllerInterface = {
       return await ProductService.createProductsService(product);
     },
 
-    async searchProductsController(query) {
+    async searchProductsController(keyword, slug) {
+      const query = {
+        keyword, 
+        slug
+      }
+      const validRequest = await SearchProductValidationSchema.parseAsync(query).catch();
+      if(!validRequest) throw new BadRequest();
       return await ProductService.searchProductsService(query);
     }
 }

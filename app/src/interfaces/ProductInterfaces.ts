@@ -2,7 +2,7 @@ import { CreateProductQuery, Product, SearchQuery, User } from "@/entities/produ
 export type ProductControllerInterface = {
   fetchProductsController(): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
-  searchProductsController(query: SearchQuery): Promise<Product[] | null>;
+  searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;
   createProductsController(query: CreateProductQuery): Promise<Product>;
 }
 
@@ -18,5 +18,7 @@ export type ProductServiceInterface = {
 export type ProductRepositoryInterface = {
   fetch(): Promise<Product[] | null>;
   create(query: Product): Promise<Product>;
-  search(query: SearchQuery): Promise<Product[] | null>
+  searchByName(name: string): Promise<Product[] | null>
+  searchByBrand(brand: string): Promise<Product[] | null>
+  searchByType(type: string): Promise<Product[] | null>
 }

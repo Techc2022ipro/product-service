@@ -25,23 +25,32 @@ export const ProductRepositories: ProductRepositoryInterface = {
     return product;
   },
 
-  async search({keyword, slug}) {
-    if(slug === "name") {
-      const product = await prisma.product.findMany({
-        where: {
-          name: keyword
-        }
-      })
-      return product ? product : null;
-    } else if(slug === "type") {
-      const product = await prisma.product.findMany({
-        where: {
-          type: keyword
-        }
-      })
-      console.log(product)
-      return product ? product : null;
-    }
-    return null;
-  }
+  async searchByName(name) {
+    const products = await prisma.product.findMany({
+      where: {
+        name
+      }
+    })
+    return products ? products : null;
+  }, 
+
+  async searchByBrand(brand) {
+    const products = await prisma.product.findMany({
+      where: {
+        brand
+      }
+    })
+    return products ? products : null;
+  }, 
+
+
+  async searchByType(type) {
+    const products = await prisma.product.findMany({
+      where: {
+        type
+      }
+    })
+    return products ? products : null;
+  }, 
+        
 }

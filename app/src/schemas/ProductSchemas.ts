@@ -22,3 +22,7 @@ export const CreateProductValidationSchema = Zod.object({
   image: Image
 })
 
+export const SearchProductValidationSchema = Zod.object({
+  keyword: Zod.string(),
+  slug: Zod.string()
+})
