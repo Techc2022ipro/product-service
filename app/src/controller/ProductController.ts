@@ -15,11 +15,17 @@ export const ProductController: ProductControllerInterface = {
     }, 
 
     async createProductsController(query) {
-      const validRequest = await CreateProductValidationSchema.parseAsync(query);
-      if(!validRequest) throw new BadRequest();
-      if(!query.image) throw new BadRequest();
-      const imageKey = await S3Service.uploadImageService(query.image);
+      if(query.tags && typeof query.tags == "string") { 
+        query.tags = [query.tags];
+      };
 
+      const validRequest = await CreateProductValidationSchema.parseAsync(query);
+
+      if(!validRequest) throw new BadRequest();
+
+      if(!query.image) throw new BadRequest();
+
+      const imageKey = await S3Service.uploadImageService(query.image);
       const product = {
         name: query.name,
         brand: query.brand,
@@ -28,7 +34,8 @@ export const ProductController: ProductControllerInterface = {
         price: query.price,
         quantity: query.quantity,
         uid: query.uid,
-        image: imageKey
+        image: imageKey,
+        tags: query.tags
       }
 
       return await ProductService.createProductsService(product);
@@ -39,7 +46,9 @@ export const ProductController: ProductControllerInterface = {
         keyword, 
         slug
       }
+
       const validRequest = await SearchProductValidationSchema.parseAsync(query).catch();
+
       if(!validRequest) throw new BadRequest();
       return await ProductService.searchProductsService(query);
     }

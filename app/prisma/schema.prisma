@@ -21,4 +21,6 @@ model Product {
   price                 Int
   uid                   Int
   image                 String      @db.VarChar(256)
+  tags                  String[]
 }
+

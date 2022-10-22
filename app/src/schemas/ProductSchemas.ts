@@ -19,7 +19,8 @@ export const CreateProductValidationSchema = Zod.object({
   description: Zod.string().min(1),
   quantity: Zod.number(),
   price: Zod.number(),
-  image: Image
+  image: Image,
+  tags: Zod.string().array().optional()
 })
 
 export const SearchProductValidationSchema = Zod.object({

@@ -19,6 +19,7 @@ export type Product = {
     quantity: number
     uid: number
     image: string 
+    tags?: string[]
 }
 
 export type CreateProductQuery = {
@@ -30,6 +31,7 @@ export type CreateProductQuery = {
   quantity: number
   uid: number
   image: Image
+  tags?: string[]
 }
 
 export type User = {
