@@ -5,8 +5,8 @@ import {ProductService} from "@/service/ProductService";
 import {S3Service} from "@/service/S3Service";
 
 export const ProductController: ProductControllerInterface = {
-    async fetchProductsController() {
-      return await ProductService.fetchProductsService();
+    async fetchProductsController(query) {
+      return await ProductService.fetchProductsService(query)
     },
 
     async feedsProductsController(user) {
@@ -18,7 +18,6 @@ export const ProductController: ProductControllerInterface = {
       if(query.tags && typeof query.tags == "string") { 
         query.tags = [query.tags];
       };
-
       const validRequest = await CreateProductValidationSchema.parseAsync(query);
 
       if(!validRequest) throw new BadRequest();
@@ -31,7 +30,7 @@ export const ProductController: ProductControllerInterface = {
         brand: query.brand,
         type: query.type,
         description: query.description,
-        price: query.price,
+        price:  query.price,
         quantity: query.quantity,
         uid: query.uid,
         image: imageKey,

@@ -45,3 +45,7 @@ export type SearchQuery = {
   keyword: string
   slug: string
 }
+
+export type FetchQuery = {
+  cursor: number | undefined 
+}

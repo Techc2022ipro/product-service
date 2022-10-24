@@ -5,10 +5,30 @@ const prisma = new PrismaClient();
 
 export const ProductRepositories: ProductRepositoryInterface = {
   async fetch() {
-    const products = await prisma.product.findMany();
+    const products = await prisma.product.findMany(
+      {
+        take: 2,
+        orderBy: {
+          createdAt: "desc",
+        }
+      }
+    );
     return products ? products : null;
   }, 
 
+  async fetchByCursor({cursor}) {
+    const products = await prisma.product.findMany({
+      take: 2,
+      skip: 1,
+      orderBy: {
+        createdAt: "desc",
+      },
+      cursor: {
+        pid: cursor
+      }
+    })
+    return products ? products : null;
+  },
   async create({uid, name,type, brand, description, price, quantity, image, tags}) {
     const product = await prisma.product.create({
       data: {
