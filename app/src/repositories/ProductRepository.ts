@@ -7,7 +7,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
   async fetch() {
     const products = await prisma.product.findMany(
       {
-        take: 2,
+        take: 5,
         orderBy: {
           createdAt: "desc",
         }
@@ -18,7 +18,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
 
   async fetchByCursor({cursor}) {
     const products = await prisma.product.findMany({
-      take: 2,
+      take: 5,
       skip: 1,
       orderBy: {
         createdAt: "desc",
