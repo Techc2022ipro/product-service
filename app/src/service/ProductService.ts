@@ -4,8 +4,9 @@ import { ProductRepositories } from '../repositories/ProductRepository';
 
 export const ProductService: ProductServiceInterface = {
 
-  async fetchProductsService() {
-    return await ProductRepositories.fetch();
+  async fetchProductsService(query) {
+    if(!query.cursor) return await ProductRepositories.fetch();
+    return await ProductRepositories.fetchByCursor(query);
   },
 
   async createProductsService(query) {

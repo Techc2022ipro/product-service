@@ -5,7 +5,8 @@ import { ProductController } from '../controller/ProductController';
 
 export const fetchProducts = async (req: Request, res: Response) => {
     ErrorWrapper(res, 'fetch', async () => {
-      return await ProductController.fetchProductsController();
+      const cursor: number = parseInt(req.query.cursor as string);
+      return await ProductController.fetchProductsController({cursor});
     })
 }
 
