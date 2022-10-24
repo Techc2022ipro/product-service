@@ -9,6 +9,10 @@ export const ProductController: ProductControllerInterface = {
       return await ProductService.fetchProductsService(query)
     },
 
+    async fetchProductByIdController(pid) {
+      return await ProductService.fetchProductByIdService(pid);
+    },
+
     async feedsProductsController(user) {
       if(!user) throw new Unauthorized();
       return null;

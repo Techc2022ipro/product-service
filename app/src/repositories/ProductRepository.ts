@@ -16,6 +16,14 @@ export const ProductRepositories: ProductRepositoryInterface = {
     return products ? products : null;
   }, 
 
+  async fetchById(pid) {
+    const product = await prisma.product.findFirst({
+      where: {
+        pid
+      }
+    })
+    return product ? product : null;
+  },
   async fetchByCursor({cursor}) {
     const products = await prisma.product.findMany({
       take: 5,

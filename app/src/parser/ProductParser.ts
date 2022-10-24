@@ -10,6 +10,12 @@ export const fetchProducts = async (req: Request, res: Response) => {
     })
 }
 
+export const fetchProductById = async (req: Request, res: Response) => {
+    ErrorWrapper(res, 'fetch', async () => {
+      return await ProductController.fetchProductByIdController(parseInt(req.params.pid));
+    })
+}
+
 export const feedsProducts = async (req: Request, res: Response) => {
     ErrorWrapper(res, 'feeds', async () => {
       return await ProductController.feedsProductsController(res.locals.user);
