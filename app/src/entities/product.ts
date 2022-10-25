@@ -34,6 +34,11 @@ export type CreateProductQuery = {
   tags?: string[]
 }
 
+export type FetchProductQuery = {
+  pid: number
+  uid: number
+}
+
 export type User = {
   uid: number,
   username: string,
