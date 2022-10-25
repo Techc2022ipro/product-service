@@ -9,6 +9,10 @@ export const ProductService: ProductServiceInterface = {
     return await ProductRepositories.fetchByCursor(query);
   },
 
+  async fetchProductByIdService(pid) {
+    return await ProductRepositories.fetchById(pid);
+  },
+
   async createProductsService(query) {
     return await ProductRepositories.create(query);
   },
