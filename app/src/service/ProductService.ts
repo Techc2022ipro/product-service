@@ -13,6 +13,10 @@ export const ProductService: ProductServiceInterface = {
     return await ProductRepositories.fetchById(pid);
   },
 
+  async fetchProductsByUidService(uid) {
+    return await ProductRepositories.fetchByUid(uid);
+  },
+
   async createProductsService(query) {
     return await ProductRepositories.create(query);
   },

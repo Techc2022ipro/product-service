@@ -24,6 +24,16 @@ export const ProductRepositories: ProductRepositoryInterface = {
     })
     return product ? product : null;
   },
+
+  async fetchByUid(uid) {
+    const products = await prisma.product.findMany({
+      where: {
+        uid
+      }
+    });
+    return products ? products : null;
+  },
+
   async fetchByCursor({cursor}) {
     const products = await prisma.product.findMany({
       take: 5,
@@ -37,6 +47,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
     })
     return products ? products : null;
   },
+
   async create({uid, name,type, brand, description, price, quantity, image, tags}) {
     const product = await prisma.product.create({
       data: {
