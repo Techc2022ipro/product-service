@@ -1,4 +1,4 @@
-import  { Request, Response, NextFunction } from 'express';
+import  { Response } from 'express';
 export class BaseError extends Error{
     status = 1
     constructor(status: number,message: string, ) {
@@ -21,6 +21,12 @@ export class BadRequest extends BaseError {
     constructor() {
         super(400, "400 Bad Request")
     }
+}
+
+export class NotFound extends BaseError {
+  constructor() {
+    super(404, "404 Page NotFound");
+  }
 }
 
 export class InternalServerError extends BaseError {

@@ -1,5 +1,5 @@
 import { ProductControllerInterface } from "@/interfaces/ProductInterfaces";
-import {BadRequest, Unauthorized} from "@/libraries/libs/error/Errors";
+import {BadRequest, NotFound, Unauthorized} from "@/libraries/libs/error/Errors";
 import {CreateProductValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
 import {ProductService} from "@/service/ProductService";
 import {S3Service} from "@/service/S3Service";
@@ -9,12 +9,20 @@ export const ProductController: ProductControllerInterface = {
       return await ProductService.fetchProductsService(query)
     },
 
-    async fetchProductByIdController(pid) {
-      return await ProductService.fetchProductByIdService(pid);
+    async fetchProductByIdController(query) {
+      const product = await ProductService.fetchProductByIdService(query.pid);
+
+      if(!product) throw new NotFound(); 
+
+      if(product.uid !== query.uid) throw new BadRequest();
+
+      return product;
     },
 
     async fetchProductsByUidController(uid) {
+
       if(!uid) throw new Unauthorized();
+
       return await ProductService.fetchProductsByUidService(uid);
     },
 
@@ -24,9 +32,11 @@ export const ProductController: ProductControllerInterface = {
     }, 
 
     async createProductsController(query) {
+
       if(query.tags && typeof query.tags == "string") { 
         query.tags = [query.tags];
       };
+
       const validRequest = await CreateProductValidationSchema.parseAsync(query);
 
       if(!validRequest) throw new BadRequest();
@@ -34,6 +44,7 @@ export const ProductController: ProductControllerInterface = {
       if(!query.image) throw new BadRequest();
 
       const imageKey = await S3Service.uploadImageService(query.image);
+
       const product = {
         name: query.name,
         brand: query.brand,
@@ -50,6 +61,7 @@ export const ProductController: ProductControllerInterface = {
     },
 
     async searchProductsController(keyword, slug) {
+      
       const query = {
         keyword, 
         slug

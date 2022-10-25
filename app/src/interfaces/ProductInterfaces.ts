@@ -1,8 +1,8 @@
-import { CreateProductQuery, FetchQuery, Product, SearchQuery, User } from "@/entities/product";
+import { CreateProductQuery, FetchProductQuery, FetchQuery, Product, SearchQuery, User } from "@/entities/product";
 
 export type ProductControllerInterface = {
   fetchProductsController(query: FetchQuery): Promise<Product[] | null>;
-  fetchProductByIdController(pid: number): Promise<Product | null>;
+  fetchProductByIdController(query: FetchProductQuery): Promise<Product>;
   fetchProductsByUidController(uid: number): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
   searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;

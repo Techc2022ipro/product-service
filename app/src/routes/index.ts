@@ -24,6 +24,6 @@ export default router;
 router.get('/' , fetchProducts);
 router.get('/feeds', VerifyToken, feedsProducts);
 router.get('/products', VerifyToken, fetchProductsByUid);
-router.get('/:pid', fetchProductById);
+router.get('/:pid', VerifyToken, fetchProductById);
 router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);
