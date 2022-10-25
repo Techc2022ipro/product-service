@@ -3,6 +3,7 @@ import { CreateProductQuery, FetchQuery, Product, SearchQuery, User } from "@/en
 export type ProductControllerInterface = {
   fetchProductsController(query: FetchQuery): Promise<Product[] | null>;
   fetchProductByIdController(pid: number): Promise<Product | null>;
+  fetchProductsByUidController(uid: number): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
   searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;
   createProductsController(query: CreateProductQuery): Promise<Product>;
@@ -13,6 +14,7 @@ export type ProductControllerInterface = {
 export type ProductServiceInterface = {
   fetchProductsService(query: FetchQuery): Promise<Product[] | null>;
   fetchProductByIdService(pid: number): Promise<Product | null>;
+  fetchProductsByUidService(uid: number): Promise<Product[] | null>;
   createProductsService(query: Product): Promise<Product>;
   searchProductsService(query: SearchQuery): Promise<Product[] | null>
 }
@@ -21,6 +23,7 @@ export type ProductServiceInterface = {
 export type ProductRepositoryInterface = {
   fetch(): Promise<Product[] | null>;
   fetchById(pid: number): Promise<Product | null>;
+  fetchByUid(uid: number): Promise<Product[] | null>;
   fetchByCursor(query: FetchQuery): Promise<Product[] | null>
   create(query: Product): Promise<Product>;
   searchByName(name: string): Promise<Product[] | null>

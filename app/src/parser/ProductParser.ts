@@ -11,8 +11,14 @@ export const fetchProducts = async (req: Request, res: Response) => {
 }
 
 export const fetchProductById = async (req: Request, res: Response) => {
-    ErrorWrapper(res, 'fetch', async () => {
+    ErrorWrapper(res, 'fetchId', async () => {
       return await ProductController.fetchProductByIdController(parseInt(req.params.pid));
+    })
+}
+
+export const fetchProductsByUid = async (req: Request, res: Response) => {
+    ErrorWrapper(res, 'fetchByUid', async () => {
+      return await ProductController.fetchProductsByUidController(res.locals.user.uid);
     })
 }
 
