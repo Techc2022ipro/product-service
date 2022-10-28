@@ -23,6 +23,17 @@ export const fetchProductsByUid = async (req: Request, res: Response) => {
     })
 }
 
+export const editProduct = async (req: Request, res: Response) => {
+    ErrorWrapper(res, 'editProduct', async () => {
+      const query = { uid: res.locals['user'].uid, ...req.body, image: req.file }
+      query.quantity = parseInt(query.quantity);
+      query.price = parseInt(query.price);
+      query.pid = parseInt(query.pid);
+      return ProductController.editProductController(query);
+    })
+}
+
+
 export const feedsProducts = async (req: Request, res: Response) => {
     ErrorWrapper(res, 'feeds', async () => {
       return await ProductController.feedsProductsController(res.locals.user);

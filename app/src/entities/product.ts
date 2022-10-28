@@ -34,6 +34,32 @@ export type CreateProductQuery = {
   tags?: string[]
 }
 
+export type EditedProduct = {
+  pid: number 
+  uid: number 
+  name: string
+  type: string
+  brand: string
+  description: string
+  price: number
+  quantity: number
+  image: string 
+  tags?: string[]
+}
+
+export type EditProductQuery = {
+  pid: number 
+  uid: number 
+  name: string
+  type: string
+  brand: string
+  description: string
+  price: number
+  quantity: number
+  image?: Image
+  tags?: string[]
+}
+
 export type FetchProductQuery = {
   pid: number
   uid: number

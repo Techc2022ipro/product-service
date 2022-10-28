@@ -56,7 +56,6 @@ export const ProductController: ProductControllerInterface = {
         image: imageKey,
         tags: query.tags
       }
-
       return await ProductService.createProductsService(product);
     },
 
@@ -71,5 +70,28 @@ export const ProductController: ProductControllerInterface = {
 
       if(!validRequest) throw new BadRequest();
       return await ProductService.searchProductsService(query);
+    },
+
+    async editProductController(query) {
+      const product = await ProductService.fetchProductByIdService(query.pid);
+
+      if(!product) throw new NotFound();
+
+      if(query.uid !== product.uid) throw new Unauthorized();
+
+      const editedProduct = {
+        pid: query.pid,
+        name: query.name,
+        brand: query.brand,
+        type: query.type,
+        description: query.description,
+        price:  query.price,
+        quantity: query.quantity,
+        uid: query.uid,
+        image: query.image ? await S3Service.uploadImageService(query.image) : product.image, 
+        tags: query.tags
+      }
+
+      return await ProductService.editProductService(editedProduct);
     }
 }

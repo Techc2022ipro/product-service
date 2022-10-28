@@ -29,6 +29,9 @@ export const ProductRepositories: ProductRepositoryInterface = {
     const products = await prisma.product.findMany({
       where: {
         uid
+      },
+      orderBy: {
+        createdAt: "desc",
       }
     });
     return products ? products : null;
@@ -56,6 +59,26 @@ export const ProductRepositories: ProductRepositoryInterface = {
         type,
         brand,
         description,
+        price,
+        quantity,
+        image,
+        tags
+      }
+    });
+    return product;
+  },
+
+  async edit({pid, uid, name, type, brand, price, quantity, image, tags}) {
+    const product = await prisma.product.update({
+      where: {
+        pid
+      },
+      data: {
+        pid,
+        uid,
+        name, 
+        type,
+        brand,
         price,
         quantity,
         image,

@@ -37,5 +37,10 @@ export const ProductService: ProductServiceInterface = {
     else {
       throw new BadRequest();
     }
+  },
+
+  async editProductService(query) {
+    return await ProductRepositories.edit(query);
   }
+
 }
