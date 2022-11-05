@@ -68,7 +68,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
     return product;
   },
 
-  async edit({pid, uid, name, type, brand, price, quantity, image, tags}) {
+  async edit({pid, uid, name, type, brand, description, price, quantity, image, tags}) {
     const product = await prisma.product.update({
       where: {
         pid
@@ -79,6 +79,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
         name, 
         type,
         brand,
+        description,
         price,
         quantity,
         image,
