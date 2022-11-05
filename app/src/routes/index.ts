@@ -24,5 +24,5 @@ router.get('/feeds', VerifyToken, feedsProducts);
 router.get('/products', VerifyToken, fetchProductsByUid);
 router.get('/:pid', VerifyToken, fetchProductById);
 router.post('/search/:slug', searchProducts);
-router.post('/edit/:id', [VerifyToken, upload.single('image')], editProduct);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);
+router.patch('/edit/:id', [VerifyToken, upload.single('image')], editProduct);
