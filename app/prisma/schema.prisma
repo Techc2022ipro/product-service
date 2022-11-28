@@ -20,6 +20,7 @@ model Product {
   quantity              Int
   price                 Int
   uid                   Int
+  username              String      @db.VarChar(60)
   image                 String      @db.VarChar(256)
   tags                  String[]
   createdAt             DateTime    @default(now()) 
