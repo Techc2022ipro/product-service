@@ -25,7 +25,7 @@ export const fetchProductsByUid = async (req: Request, res: Response) => {
 
 export const editProduct = async (req: Request, res: Response) => {
     ErrorWrapper(res, 'editProduct', async () => {
-      const query = { uid: res.locals['user'].uid, ...req.body, image: req.file }
+      const query = { uid: res.locals['user'].uid, username: res.locals['user'].username, ...req.body, image: req.file }
       query.quantity = parseInt(query.quantity);
       query.price = parseInt(query.price);
       query.pid = parseInt(query.pid);
@@ -49,7 +49,7 @@ export const searchProducts = async (req: Request, res: Response) => {
 
 export const createProducts = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'create', async () => {
-    const query = { uid: res.locals['user'].uid, ...req.body, image: req.file };
+    const query = { uid: res.locals['user'].uid, username: res.locals['user'].username, ...req.body, image: req.file };
     query.quantity = parseInt(query.quantity);
     query.price = parseInt(query.price);
     return await ProductController.createProductsController(query);

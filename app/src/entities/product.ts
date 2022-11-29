@@ -18,6 +18,7 @@ export type Product = {
     price: number
     quantity: number
     uid: number
+    username: string
     image: string 
     tags?: string[]
 }
@@ -30,6 +31,7 @@ export type CreateProductQuery = {
   price: number
   quantity: number
   uid: number
+  username: string
   image: Image
   tags?: string[]
 }
@@ -37,6 +39,7 @@ export type CreateProductQuery = {
 export type EditedProduct = {
   pid: number 
   uid: number 
+  username: string
   name: string
   type: string
   brand: string
@@ -50,6 +53,7 @@ export type EditedProduct = {
 export type EditProductQuery = {
   pid: number 
   uid: number 
+  username: string
   name: string
   type: string
   brand: string

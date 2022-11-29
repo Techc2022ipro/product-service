@@ -51,11 +51,12 @@ export const ProductRepositories: ProductRepositoryInterface = {
     return products ? products : null;
   },
 
-  async create({uid, name,type, brand, description, price, quantity, image, tags}) {
+  async create({uid, username, name,type, brand, description, price, quantity, image, tags}) {
     const product = await prisma.product.create({
       data: {
         uid,
         name,
+        username,
         type,
         brand,
         description,
@@ -68,7 +69,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
     return product;
   },
 
-  async edit({pid, uid, name, type, brand, description, price, quantity, image, tags}) {
+  async edit({pid, uid, username, name, type, brand, description, price, quantity, image, tags}) {
     const product = await prisma.product.update({
       where: {
         pid
@@ -76,6 +77,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
       data: {
         pid,
         uid,
+        username,
         name, 
         type,
         brand,
