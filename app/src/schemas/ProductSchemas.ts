@@ -13,6 +13,7 @@ const Image = Zod.object({
 
 export const CreateProductValidationSchema = Zod.object({
   uid: Zod.number(),
+  username: Zod.string(),
   name: Zod.string().min(1),
   brand: Zod.string().min(1),
   type: Zod.string().min(1),

@@ -53,6 +53,7 @@ export const ProductController: ProductControllerInterface = {
         price:  query.price,
         quantity: query.quantity,
         uid: query.uid,
+        username: query.username,
         image: imageKey,
         tags: query.tags
       }
@@ -88,6 +89,7 @@ export const ProductController: ProductControllerInterface = {
         price:  query.price,
         quantity: query.quantity,
         uid: query.uid,
+        username: query.username,
         image: query.image ? await S3Service.uploadImageService(query.image) : product.image, 
         tags: query.tags
       }
