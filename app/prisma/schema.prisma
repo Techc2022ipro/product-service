@@ -23,7 +23,17 @@ model Product {
   username              String      @db.VarChar(60)
   image                 String      @db.VarChar(256)
   tags                  String[]
+  comment               Comment[]
   createdAt             DateTime    @default(now()) 
   updatedAt             DateTime    @updatedAt
 }
 
+model Comment {
+  cid                   Int         @id @default(autoincrement())
+  uid                   Int
+  pid                   Int
+  comment               String      @db.VarChar(60)
+  product               Product     @relation(fields: [pid], references: [pid])
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+}
