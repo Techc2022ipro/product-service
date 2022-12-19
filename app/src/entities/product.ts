@@ -84,3 +84,9 @@ export type SearchQuery = {
 export type FetchQuery = {
   cursor: number | undefined 
 }
+
+export type ProductCommentQuery = {
+  uid: number
+  pid: number
+  comment: string
+}

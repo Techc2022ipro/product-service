@@ -28,3 +28,9 @@ export const SearchProductValidationSchema = Zod.object({
   keyword: Zod.string(),
   slug: Zod.string()
 })
+
+export const CommentsValidationSchema = Zod.object({
+  uid: Zod.number(),
+  pid: Zod.number(),
+  comment: Zod.string()
+})

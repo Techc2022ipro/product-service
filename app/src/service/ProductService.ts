@@ -41,6 +41,11 @@ export const ProductService: ProductServiceInterface = {
 
   async editProductService(query) {
     return await ProductRepositories.edit(query);
-  }
+  },
 
+  async createCommentsService(query) {
+    const createdComment = await ProductRepositories.createComment(query);
+    if (!createdComment) throw new BadRequest();
+    return createdComment;
+  }
 }

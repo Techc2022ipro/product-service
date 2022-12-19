@@ -10,6 +10,9 @@ export const ProductRepositories: ProductRepositoryInterface = {
         take: 5,
         orderBy: {
           createdAt: "desc",
+        },
+        include: {
+          comment: true
         }
       }
     );
@@ -118,5 +121,16 @@ export const ProductRepositories: ProductRepositoryInterface = {
     })
     return products ? products : null;
   }, 
-        
+
+  async createComment({uid, pid, comment}) {
+    const comments = await  prisma.comment.create({
+      data: {
+        uid,
+        pid,
+        comment
+      }
+    })
+
+    return comments ? comments : null
+  }
 }

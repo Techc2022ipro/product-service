@@ -55,3 +55,10 @@ export const createProducts = async (req: Request, res: Response) => {
     return await ProductController.createProductsController(query);
     })
 }
+
+export const createComments = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'comment', async () => {
+    const query = { uid: res.locals['user'].uid, username: res.locals['user'].username, ...req.body };
+    return await ProductController.createCommentsController(query);
+    })
+}

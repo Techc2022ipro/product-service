@@ -1,4 +1,7 @@
-import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, SearchQuery, User } from "@/entities/product";
+import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, ProductCommentQuery, SearchQuery, User } from "@/entities/product";
+
+// have to clean the "null" 
+// have to write the interfaces in such a way that we catch the errors early on
 
 export type ProductControllerInterface = {
   fetchProductsController(query: FetchQuery): Promise<Product[] | null>;
@@ -8,6 +11,7 @@ export type ProductControllerInterface = {
   searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;
   createProductsController(query: CreateProductQuery): Promise<Product>;
   editProductController(query: EditProductQuery): Promise<Product>;
+  createCommentsController(query: ProductCommentQuery): Promise<{message: string}>;
 }
 
 //service interface 
@@ -19,6 +23,7 @@ export type ProductServiceInterface = {
   createProductsService(query: Product): Promise<Product>;
   searchProductsService(query: SearchQuery): Promise<Product[] | null>
   editProductService(query: EditedProduct): Promise<Product>;
+  createCommentsService(query: ProductCommentQuery): Promise<ProductCommentQuery>;
 }
 
 //repositories interface 
@@ -32,4 +37,5 @@ export type ProductRepositoryInterface = {
   searchByBrand(brand: string): Promise<Product[] | null>
   searchByType(type: string): Promise<Product[] | null>
   edit(query: EditedProduct): Promise<Product>
+  createComment(query: ProductCommentQuery): Promise<ProductCommentQuery | null>
 }
