@@ -123,7 +123,7 @@ export const ProductRepositories: ProductRepositoryInterface = {
   }, 
 
   async createComment({uid, pid, comment}) {
-    const comments = await  prisma.comment.create({
+    const comments = await prisma.comment.create({
       data: {
         uid,
         pid,
@@ -131,6 +131,17 @@ export const ProductRepositories: ProductRepositoryInterface = {
       }
     })
 
-    return comments ? comments : null
+    return comments ? comments : null;
+  },
+
+  async filterByTag(tag) {
+    const products = await prisma.product.findMany({
+      where: {
+        tags: {
+          has: tag,
+        },
+      },
+    })
+    return products ? products : null;
   }
 }

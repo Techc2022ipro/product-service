@@ -12,6 +12,7 @@ export type ProductControllerInterface = {
   createProductsController(query: CreateProductQuery): Promise<Product>;
   editProductController(query: EditProductQuery): Promise<Product>;
   createCommentsController(query: ProductCommentQuery): Promise<{message: string}>;
+  filterProductsByTagController(query: string): Promise<Product[]>
 }
 
 //service interface 
@@ -24,6 +25,7 @@ export type ProductServiceInterface = {
   searchProductsService(query: SearchQuery): Promise<Product[] | null>
   editProductService(query: EditedProduct): Promise<Product>;
   createCommentsService(query: ProductCommentQuery): Promise<ProductCommentQuery>;
+  filterProductsByTagService(query: string): Promise<Product[]>;
 }
 
 //repositories interface 
@@ -38,4 +40,5 @@ export type ProductRepositoryInterface = {
   searchByType(type: string): Promise<Product[] | null>
   edit(query: EditedProduct): Promise<Product>
   createComment(query: ProductCommentQuery): Promise<ProductCommentQuery | null>
+  filterByTag(query: string): Promise<Product[] | null>
 }

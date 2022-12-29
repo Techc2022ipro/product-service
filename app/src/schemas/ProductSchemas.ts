@@ -34,3 +34,7 @@ export const CommentsValidationSchema = Zod.object({
   pid: Zod.number(),
   comment: Zod.string().min(1)
 })
+
+export const FilterByTagValidationSchema = Zod.object({
+  slug: Zod.string().min(1)
+})

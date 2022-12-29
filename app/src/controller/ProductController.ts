@@ -1,12 +1,11 @@
 import { ProductControllerInterface } from "@/interfaces/ProductInterfaces";
 import {BadRequest, NotFound, Unauthorized} from "@/libraries/libs/error/Errors";
-import {CommentsValidationSchema, CreateProductValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
+import {CommentsValidationSchema, CreateProductValidationSchema, FilterByTagValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
 import {ProductService} from "@/service/ProductService";
 import {S3Service} from "@/service/S3Service";
 
 export const ProductController: ProductControllerInterface = {
     async fetchProductsController(query) {
-      const test = await ProductService.fetchProductsService(query)
       return await ProductService.fetchProductsService(query)
     },
 
@@ -103,5 +102,11 @@ export const ProductController: ProductControllerInterface = {
       if(hasIssues.issues) throw new BadRequest();
       await ProductService.createCommentsService(query);
       return {message: "Comment Added"}
+    },
+
+    async filterProductsByTagController(slug) {
+      const hasIssues = await FilterByTagValidationSchema.parseAsync({slug}).catch(err => {return err});
+      if(hasIssues.Issues) throw new BadRequest();
+      return await ProductService.filterProductsByTagService(slug);
     }
 }
