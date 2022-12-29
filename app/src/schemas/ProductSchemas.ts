@@ -32,5 +32,5 @@ export const SearchProductValidationSchema = Zod.object({
 export const CommentsValidationSchema = Zod.object({
   uid: Zod.number(),
   pid: Zod.number(),
-  comment: Zod.string()
+  comment: Zod.string().min(1)
 })

@@ -99,9 +99,9 @@ export const ProductController: ProductControllerInterface = {
     },
 
     async createCommentsController(query) {
-      const isValid = CommentsValidationSchema.parseAsync(query);
-      if(!isValid ) return new BadRequest();
+      const hasIssues = await CommentsValidationSchema.parseAsync(query).catch(err => {return err});
+      if(hasIssues.issues) throw new BadRequest();
       await ProductService.createCommentsService(query);
-      return {message: "created"}
+      return {message: "Comment Added"}
     }
 }
