@@ -1,5 +1,5 @@
 import { ProductServiceInterface } from "@/interfaces/ProductInterfaces";
-import {BadRequest} from "@/libraries/libs/error/Errors";
+import {BadRequest, InternalServerError, NotFound} from "@/libraries/libs/error/Errors";
 import { ProductRepositories } from '../repositories/ProductRepository';
 
 export const ProductService: ProductServiceInterface = {
@@ -47,5 +47,22 @@ export const ProductService: ProductServiceInterface = {
     const createdComment = await ProductRepositories.createComment(query);
     if (!createdComment) throw new BadRequest();
     return createdComment;
+  }, 
+
+  async filterProductsByTagService(slug) {
+    const products = await ProductRepositories.filterByTag(slug);
+    if (!products) throw new NotFound();
+    return products;
+  },
+
+  async createTagService(query) {
+    const tag = await ProductRepositories.createTag(query);
+    if(!tag) throw new InternalServerError();
+    return {message: 'Tag Created'};
+  },
+
+  async fetchTagByNameService(query) {
+    return await ProductRepositories.fetchTagByName(query);
   }
+
 }
