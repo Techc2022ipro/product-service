@@ -130,7 +130,35 @@ export const ProductRepositories: ProductRepositoryInterface = {
         comment
       }
     })
+    return comments ? comments : null;
+  },
 
-    return comments ? comments : null
+  async filterByTag(tag) {
+    const products = await prisma.product.findMany({
+      where: {
+        tags: {
+          has: tag,
+        },
+      },
+    })
+    return products ? products : null;
+  },
+
+  async fetchTagByName(tag) {
+    const tags = await prisma.tags.findFirst({
+      where: {
+        tag
+      }
+    })
+    return tags ? tags : null;
+  },
+
+  async createTag(tag) {
+    const tags = await prisma.tags.create({
+      data: {
+        tag
+      }
+    })
+    return tags;
   }
 }
