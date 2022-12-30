@@ -1,4 +1,4 @@
-import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, ProductCommentQuery, SearchQuery, User } from "@/entities/product";
+import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, ProductCommentQuery, SearchQuery, Tags, User } from "@/entities/product";
 
 // have to clean the "null" 
 // have to write the interfaces in such a way that we catch the errors early on
@@ -13,6 +13,7 @@ export type ProductControllerInterface = {
   editProductController(query: EditProductQuery): Promise<Product>;
   createCommentsController(query: ProductCommentQuery): Promise<{message: string}>;
   filterProductsByTagController(query: string): Promise<Product[]>;
+  fetchAllTagsController(): Promise<Tags[]>;
 }
 
 //service interface 
@@ -27,7 +28,8 @@ export type ProductServiceInterface = {
   createCommentsService(query: ProductCommentQuery): Promise<ProductCommentQuery>;
   filterProductsByTagService(query: string): Promise<Product[]>;
   createTagService(query:string): Promise<{message: string}>;
-  fetchTagByNameService(query:string): Promise<{tagid: number, tag:string} | null>
+  fetchTagByNameService(query:string): Promise<Tags | null>;
+  fetchAllTagsService(): Promise<Tags[] | null>
 }
 
 //repositories interface 
@@ -35,14 +37,15 @@ export type ProductRepositoryInterface = {
   fetch(): Promise<Product[] | null>;
   fetchById(pid: number): Promise<Product | null>;
   fetchByUid(uid: number): Promise<Product[] | null>;
-  fetchByCursor(query: FetchQuery): Promise<Product[] | null>
+  fetchByCursor(query: FetchQuery): Promise<Product[] | null>;
   create(query: Product): Promise<Product>;
-  searchByName(name: string): Promise<Product[] | null>
-  searchByBrand(brand: string): Promise<Product[] | null>
-  searchByType(type: string): Promise<Product[] | null>
-  edit(query: EditedProduct): Promise<Product>
-  createComment(query: ProductCommentQuery): Promise<ProductCommentQuery | null>
-  filterByTag(query: string): Promise<Product[] | null>
-  createTag(query:string): Promise<{tagid: number, tag: string}>
-  fetchTagByName(query: string): Promise<{tagid: number, tag: string} | null>
+  searchByName(name: string): Promise<Product[] | null>;
+  searchByBrand(brand: string): Promise<Product[] | null>;
+  searchByType(type: string): Promise<Product[] | null>;
+  edit(query: EditedProduct): Promise<Product>;
+  createComment(query: ProductCommentQuery): Promise<ProductCommentQuery | null>;
+  filterByTag(query: string): Promise<Product[] | null>;
+  createTag(query:string): Promise<Tags | null>;
+  fetchTagByName(query: string): Promise<Tags | null>;
+  fetchAllTags(): Promise<Tags[] | null>;
 }

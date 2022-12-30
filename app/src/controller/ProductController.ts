@@ -118,4 +118,10 @@ export const ProductController: ProductControllerInterface = {
       if(hasIssues.Issues) throw new BadRequest();
       return await ProductService.filterProductsByTagService(slug);
     },
+
+    async fetchAllTagsController() {
+      const tags = await ProductService.fetchAllTagsService();
+      if(!tags) throw new NotFound();
+      return tags;
+    }
 }

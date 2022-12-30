@@ -62,3 +62,9 @@ export const createComments = async (req: Request, res: Response) => {
     return await ProductController.createCommentsController(query);
     })
 }
+
+export const fetchAlltags = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'fetchAllTags', async() => {
+    return await ProductController.fetchAllTagsController();
+  })
+}

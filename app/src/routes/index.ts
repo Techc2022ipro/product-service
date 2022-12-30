@@ -2,6 +2,7 @@ import VerifyToken from '@/libraries/middlewares/VerifyToken';
 import { createComments, createProducts, 
   editProduct, 
   feedsProducts, 
+  fetchAlltags, 
   fetchProductById, 
   fetchProducts, 
   fetchProductsByUid, 
@@ -22,6 +23,7 @@ export default router;
 router.get('/' , fetchProducts);
 router.get('/feeds', VerifyToken, feedsProducts);
 router.get('/products', VerifyToken, fetchProductsByUid);
+router.get('/tags', fetchAlltags);
 router.get('/:pid', VerifyToken, fetchProductById);
 router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);
