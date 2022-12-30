@@ -160,5 +160,10 @@ export const ProductRepositories: ProductRepositoryInterface = {
       }
     })
     return tags;
+  },
+
+  async fetchAllTags() {
+    const tags = await prisma.tags.findMany();
+    return tags ? tags : null;
   }
 }

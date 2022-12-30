@@ -90,3 +90,8 @@ export type ProductCommentQuery = {
   pid: number
   comment: string
 }
+
+export type Tags = {
+  tagid: number,
+  tag: string
+}

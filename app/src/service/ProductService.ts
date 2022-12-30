@@ -63,6 +63,9 @@ export const ProductService: ProductServiceInterface = {
 
   async fetchTagByNameService(query) {
     return await ProductRepositories.fetchTagByName(query);
-  }
+  },
 
+  async fetchAllTagsService() {
+    return await ProductRepositories.fetchAllTags();
+  }
 }
