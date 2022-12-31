@@ -114,7 +114,7 @@ export const ProductController: ProductControllerInterface = {
     },
 
     async filterProductsByTagController(slug) {
-      const hasIssues = await FilterByTagValidationSchema.parseAsync({slug}).catch(err => {return err});
+      const hasIssues = await FilterByTagValidationSchema.parseAsync(slug).catch(err => {return err});
       if(hasIssues.Issues) throw new BadRequest();
       return await ProductService.filterProductsByTagService(slug);
     },

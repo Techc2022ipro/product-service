@@ -47,6 +47,12 @@ export const searchProducts = async (req: Request, res: Response) => {
     })
 }
 
+export const filterByTag = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'filterByTag', async() => {
+    return await ProductController.filterProductsByTagController(req.params.slug)
+  })
+}
+
 export const createProducts = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'create', async () => {
     const query = { uid: res.locals['user'].uid, username: res.locals['user'].username, ...req.body, image: req.file };

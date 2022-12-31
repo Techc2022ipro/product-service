@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Tue Jun 14 09:23:47 2022
+# Make data base, printed on Fri Dec 30 22:26:14 2022
 
 # Variables
 
@@ -22,9 +22,6 @@ make: *** No rule to make target `all'.  Stop.
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 LC_CTYPE = UTF-8
-# environment
- 
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -39,38 +36,28 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile
-MAKEFILE_LIST := 
-# environment
-VSCODE_VERBOSE_LOGGING = true
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-INFOPATH = /opt/homebrew/share/info:
-# environment
-P9K_SSH = 0
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/xw/gvtx8bws187_kkqf8qxcw9y00000gn/T/vscode-ipc-c80c8176-66bf-455c-b921-d9c174eb41e9.sock
+INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
 VSCODE_CWD = /Users/sabirbarahi/Documents/ipro/product-service
 # environment
-PATH = /opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
+PATH = /opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
-# environment
-LaunchInstanceID = 3A1715B4-BCED-422D-8241-016560848134
-# environment
-VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.nyohfPYiVu/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pwxMI8txC6/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_PIPE_LOGGING = true
+TMUX_PANE = %55
 # environment
 PWD = /Users/sabirbarahi/Documents/ipro/product-service
 # environment
@@ -78,17 +65,17 @@ HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-MANPATH = /opt/local/share/man:/opt/homebrew/share/man::
+MANPATH = /opt/local/share/man:/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/local/share/man:/opt/homebrew/share/man::
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /Users/sabirbarahi
 # default
-MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/sabirbarahi/Library/Application Support/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+VSCODE_CODE_CACHE_PATH = /Users/sabirbarahi/Library/Application Support/Code/CachedData/e8a3071ea4344d9d48ef8a4df2c097372b0c5161
 # environment
 LOGNAME = sabirbarahi
 # environment
@@ -108,7 +95,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 LC_TERMINAL = iTerm2
 # environment
-SHLVL = 3
+SHLVL = 4
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -118,15 +105,15 @@ USER = sabirbarahi
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w2t0p2:3A266F31-5595-4B1E-8BA7-65A79DCA668A
+TERM_SESSION_ID = w0t0p0:9F2B059C-9E37-461A-89B6-FB77CCF8EF51
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # environment
-TERM_PROGRAM = iTerm.app
+TERM_PROGRAM = tmux
 # default
 .VARIABLES := 
 # environment
@@ -134,7 +121,11 @@ TMPDIR = /var/folders/xw/gvtx8bws187_kkqf8qxcw9y00000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/sabirbarahi/Library/Application Support/Code/1.68.0-main.sock
+VSCODE_IPC_HOOK = /Users/sabirbarahi/Library/Application Support/Code/1.74.2-main.sock
+# environment
+COMMAND_RESULT = true
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -142,23 +133,25 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 3.4.15
+TERM_PROGRAM_VERSION = 3.3a
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.10074657.10074663.3DF6FE19-7D1A-4E30-AD48-580953F968A5
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.33498519.33498527.5B991ADF-E082-4F84-BB0E-F1B8CFA0C5E2
 # environment
-LC_TERMINAL_VERSION = 3.4.15
+LC_TERMINAL_VERSION = 3.4.18
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+TMUX = /private/tmp/tmux-501/default,43966,0
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w2t0p2:3A266F31-5595-4B1E-8BA7-65A79DCA668A
+ITERM_SESSION_ID = w0t0p0:9F2B059C-9E37-461A-89B6-FB77CCF8EF51
 # environment
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
-COLORFGBG = 7;0
+COLORFGBG = 15;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 # environment
@@ -173,10 +166,6 @@ ITERM_PROFILE = Default
 PAGER = less
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186b2
-# environment
-P9K_TTY = old
 # automatic
 ^F = $(notdir $^)
 # default
@@ -186,13 +175,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
+TERM = screen-256color
 # environment
-_P9K_TTY = /dev/ttys006
-# environment
-VSCODE_PID = 13857
+VSCODE_PID = 43731
 # variable set hash-table stats:
-# Load=88/1024=9%, Rehash=0, Collisions=4/108=4%
+# Load=82/1024=8%, Rehash=0, Collisions=4/104=4%
 
 # Pattern-specific Variable Values
 
@@ -200,9 +187,9 @@ VSCODE_PID = 13857
 
 # Directories
 
-# . (device 16777229, inode 13074808): 9 files, no impossibilities.
+# . (device 16777229, inode 30026171): 12 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -227,21 +214,10 @@ all:
 
 # Not a target:
 Makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-12-04 19:24:16
 #  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -251,29 +227,19 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
+# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0
-# # of strcache buffers: 0
-# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
-# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Jun 14 09:23:47 2022
+# Finished Make data base on Fri Dec 30 22:26:14 2022
 
  
