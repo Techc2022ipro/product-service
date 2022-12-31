@@ -6,6 +6,7 @@ import { createComments, createProducts,
   fetchProductById, 
   fetchProducts, 
   fetchProductsByUid, 
+  filterByTag, 
   searchProducts} from '@/parser/ProductParser';
 import { Router } from 'express';
 import multer from 'multer';
@@ -24,6 +25,7 @@ router.get('/' , fetchProducts);
 router.get('/feeds', VerifyToken, feedsProducts);
 router.get('/products', VerifyToken, fetchProductsByUid);
 router.get('/tags', fetchAlltags);
+router.get('/tag/:slug', filterByTag);
 router.get('/:pid', VerifyToken, fetchProductById);
 router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);

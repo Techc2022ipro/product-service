@@ -1,6 +1,3 @@
-[submodule "productfrontend/app/src/common-components"]
-	path = productfrontend/app/src/common-components
-	url = git@github.com:Techc2022ipro/common-components.git
-[submodule "productbackend/app/src/libraries"]
-	path = productbackend/app/src/libraries
+[submodule "app/src/libraries"]
+	path = app/src/libraries
 	url = git@github.com:Techc2022ipro/libraries.git
