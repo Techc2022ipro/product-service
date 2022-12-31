@@ -140,6 +140,9 @@ export const ProductRepositories: ProductRepositoryInterface = {
           has: tag,
         },
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     })
     return products ? products : null;
   },
