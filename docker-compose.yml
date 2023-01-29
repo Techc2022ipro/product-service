@@ -4,7 +4,7 @@ volumes:
 services:
   productserver:
     build:
-      context: .
+      context: ./app
       dockerfile: docker/Dockerfile
     container_name: productserver
     environment:
