@@ -19,7 +19,7 @@ services:
       - postgresql
     tty: true
   postgresql:
-    image: postgres:12
+    image: postgres:13.3
     container_name: product-db
     environment:
       - POSTGRES_USER=root
