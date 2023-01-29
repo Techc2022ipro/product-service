@@ -19,7 +19,6 @@ services:
       - postgresql
     tty: true
   postgresql:
-    # image: postgres:13.3
     build:
       context: .
       dockerfile: ./DBDockerfile
