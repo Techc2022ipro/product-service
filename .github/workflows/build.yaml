@@ -34,5 +34,6 @@ jobs:
     #     docker push ${{ secrets.ECR_REPO }}
     - name: compose build
       run: |
+        echo "" > app/.env
         docker-compose up -d
         docker-compose push
