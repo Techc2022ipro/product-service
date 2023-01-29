@@ -21,6 +21,7 @@ services:
   postgresql:
     # image: postgres:13.3
     build:
+      context: .
       dockerfile: ./DBDockerfile
     image: 053794532455.dkr.ecr.ap-northeast-1.amazonaws.com/proddb:latest
     container_name: product-db
