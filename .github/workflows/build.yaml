@@ -3,10 +3,10 @@ permissions:
   id-token: write
   contents: read
 on:
-  # workflow_dispatch:
+  workflow_dispatch:
   pull_request:
     types:
-      - opend
+      - opened
       - synchronize
     branches:
       - main
@@ -27,8 +27,13 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push image to Amazon ECR
+    # - name: Build, tag, and push image to Amazon ECR
+    #   run: |
+    #     docker build -t product-service-server .
+    #     docker tag product-service-server:latest ${{ secrets.ECR_REPO }}
+    #     docker push ${{ secrets.ECR_REPO }}
+    - name: compose build
       run: |
-        docker build -t product-service-server .
-        docker tag product-service-server:latest ${{ secrets.ECR_REPO }}
-        docker push ${{ secrets.ECR_REPO }}
+        echo "" > app/.env
+        docker-compose up -d postgresql
+        docker-compose push
