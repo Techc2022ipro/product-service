@@ -35,5 +35,5 @@ jobs:
     - name: compose build
       run: |
         echo "" > app/.env
-        docker-compose up -d
+        docker-compose up -d postgresql
         docker-compose push
