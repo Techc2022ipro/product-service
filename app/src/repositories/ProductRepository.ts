@@ -5,8 +5,7 @@ const prisma = new PrismaClient();
 
 export const ProductRepositories: ProductRepositoryInterface = {
   async fetch() {
-    const products = await prisma.product.findMany(
-      {
+    const products = await prisma.product.findMany( {
         take: 5,
         orderBy: {
           createdAt: "desc",
