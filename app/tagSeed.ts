@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const defaultTags = ['Winter','Summer','Autumn','Spring','Geeky','Nerdy', 'Cool', 'Modern', 'Minimalist'];
+const defaultTags = ['winter','summer','autumn','spring','geeky','nerdy', 'cool', 'modern', 'minimalist'];
 
 
 defaultTags.forEach(async element => {
