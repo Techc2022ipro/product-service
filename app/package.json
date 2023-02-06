@@ -8,6 +8,7 @@
     "start": "node -r tsconfig-paths/register -r ts-node/register ./src/server.ts",
     "serve": "nodemon --legacy-watch --exec 'npm run start'"
   },
+  "proxy":"https://look-book.net/*",
   "keywords": [],
   "author": "",
   "license": "ISC",
