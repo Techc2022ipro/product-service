@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser';
 const app = express();
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:3000","http://localhost:4000"],
+  origin: ["http://localhost:3000","http://localhost:4000", "https://look-book.net", "https://seller.look-book.net"],
   credentials: true
 }));
 app.use(helmet());
