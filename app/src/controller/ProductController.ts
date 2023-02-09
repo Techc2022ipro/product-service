@@ -10,11 +10,9 @@ export const ProductController: ProductControllerInterface = {
     },
 
     async fetchProductByIdController(query) {
-      const product = await ProductService.fetchProductByIdService(query.pid);
+      if(!query && typeof query !== "number") throw new BadRequest(); 
 
-      if(!product) throw new NotFound(); 
-
-      if(product.uid !== query.uid) throw new BadRequest();
+      const product = await ProductService.fetchProductByIdService(query);
 
       return product;
     },

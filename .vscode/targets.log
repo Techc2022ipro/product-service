@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Tue Feb  7 22:01:32 2023
+# Make data base, printed on Thu Feb  9 16:33:05 2023
 
 # Variables
 
@@ -46,17 +46,17 @@ PATH = /opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-LaunchInstanceID = EFF8B272-8733-427A-BBB4-9D05FDFC5CFC
+LaunchInstanceID = CF034F2C-2F8C-487D-A293-D89CE99A163A
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.dtXUmlLU8U/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.iJLJ9mnjit/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-TMUX_PANE = %6
+TMUX_PANE = %12
 # environment
 PWD = /Users/sabirbarahi/Documents/ipro/product-service
 # environment
@@ -104,7 +104,7 @@ USER = sabirbarahi
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w0t1p0:C851F488-6444-4812-ADE7-B6D0DCF2E4AF
+TERM_SESSION_ID = w0t0p0:7AC15BD9-6751-488D-B894-D6E8B912C094
 # environment
 LESS = -R
 # automatic
@@ -134,7 +134,7 @@ MFLAGS = -Rrqp
 # environment
 TERM_PROGRAM_VERSION = 3.3a
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.37637805.37637811.758AB3C5-7DA4-4E02-84FD-51777CF529B4
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.37637805.37637811.43F08EA7-169F-4B02-AE16-00017C870AB6
 # environment
 LC_TERMINAL_VERSION = 3.4.19
 # environment
@@ -142,11 +142,11 @@ HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-TMUX = /private/tmp/tmux-501/default,56427,0
+TMUX = /private/tmp/tmux-501/default,24160,2
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w0t1p0:C851F488-6444-4812-ADE7-B6D0DCF2E4AF
+ITERM_SESSION_ID = w0t0p0:7AC15BD9-6751-488D-B894-D6E8B912C094
 # environment
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
@@ -178,7 +178,7 @@ LANG = C
 # environment
 TERM = screen-256color
 # environment
-VSCODE_PID = 79698
+VSCODE_PID = 60981
 # variable set hash-table stats:
 # Load=84/1024=8%, Rehash=0, Collisions=4/106=4%
 
@@ -188,7 +188,7 @@ VSCODE_PID = 79698
 
 # Directories
 
-# . (device 16777230, inode 30026171): 14 files, no impossibilities.
+# . (device 16777229, inode 30026171): 14 files, no impossibilities.
 
 # 14 files, no impossibilities in 1 directories.
 
@@ -241,7 +241,7 @@ Makefile:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Feb  7 22:01:32 2023
+# Finished Make data base on Thu Feb  9 16:33:05 2023
 
  
 make: *** No rule to make target `all'.  Stop.

@@ -1,6 +1,5 @@
 
 import { PrismaClient } from '@prisma/client';
-import {randomInt} from 'crypto';
 
 const prisma = new PrismaClient();
 
@@ -27,11 +26,19 @@ defaultTags.forEach(async element => {
     }
 });
 
+const generateRandomTag= () => {
+  return defaultTags[Math.floor(Math.random() * defaultTags.length)];
+}
 
 const randomTags = () => {
-  let rts = [];
-  for(let i = 0; i <= 3; i++) {
-    rts.push(defaultTags[Math.floor(Math.random() * defaultTags.length)])
+  let rts: string[] = [];
+  for(let i = 0; i < 3; i++) {
+    let tag = generateRandomTag();
+    if(rts.includes(tag)) {
+      break;
+    } else {
+      rts.push(tag);
+    }
   }
   return rts;
 }

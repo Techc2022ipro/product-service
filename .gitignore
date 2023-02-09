@@ -4,4 +4,5 @@
 /app/package-lock.json
 /app/uploads
 /app/.env
-/app/.env
+/app/.env.production
+

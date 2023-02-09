@@ -10,7 +10,12 @@ export const ProductService: ProductServiceInterface = {
   },
 
   async fetchProductByIdService(pid) {
-    return await ProductRepositories.fetchById(pid);
+
+    const product = await ProductRepositories.fetchById(pid);
+
+    if(!product) throw new BadRequest();
+
+    return product;
   },
 
   async fetchProductsByUidService(uid) {
