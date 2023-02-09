@@ -29,7 +29,6 @@ export const editProduct = async (req: Request, res: Response) => {
       query.quantity = parseInt(query.quantity);
       query.price = parseInt(query.price);
       query.pid = parseInt(query.pid);
-      console.log(query);
       return ProductController.editProductController(query);
     })
 }
@@ -72,5 +71,11 @@ export const createComments = async (req: Request, res: Response) => {
 export const fetchAlltags = async (req: Request, res: Response) => {
   ErrorWrapper(res, 'fetchAllTags', async() => {
     return await ProductController.fetchAllTagsController();
+  })
+}
+
+export const addLikes = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'fetchAllTags', async() => {
+    return await ProductController.addLikesController(parseInt(req.params.pid));
   })
 }

@@ -59,6 +59,7 @@ const addProducts = async () => {
           quantity: Math.floor(Math.random() * 50),
           price: Math.floor(Math.random() * 1000),
           tags: randomTags(),
+          likes: 0,
         }
       });
       console.log(prod);

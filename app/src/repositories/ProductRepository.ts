@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 export const ProductRepositories: ProductRepositoryInterface = {
   async fetch() {
     const products = await prisma.product.findMany( {
-        take: 5,
         orderBy: {
           createdAt: "desc",
         },
@@ -173,5 +172,17 @@ export const ProductRepositories: ProductRepositoryInterface = {
   async fetchAllTags() {
     const tags = await prisma.tags.findMany();
     return tags ? tags : null;
+  },
+
+  async addLikes({pid, likes}) {
+    const product = await prisma.product.update({
+      where: {
+        pid,
+      },
+      data: {
+        likes,
+      }
+    })
+    return null; 
   }
 }

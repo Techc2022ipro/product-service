@@ -14,6 +14,7 @@ export type ProductControllerInterface = {
   createCommentsController(query: ProductCommentQuery): Promise<{message: string}>;
   filterProductsByTagController(query: string): Promise<Product[]>;
   fetchAllTagsController(): Promise<Tags[]>;
+  addLikesController(query: number): Promise<null>;
 }
 
 //service interface 
@@ -30,6 +31,7 @@ export type ProductServiceInterface = {
   createTagService(query:string): Promise<{message: string}>;
   fetchTagByNameService(query:string): Promise<Tags | null>;
   fetchAllTagsService(): Promise<Tags[] | null>
+  addLikesService(query: number): Promise<null>;
 }
 
 //repositories interface 
@@ -48,4 +50,5 @@ export type ProductRepositoryInterface = {
   createTag(query:string): Promise<Tags | null>;
   fetchTagByName(query: string): Promise<Tags | null>;
   fetchAllTags(): Promise<Tags[] | null>;
+  addLikes(query: {pid: number, likes: number}): Promise<null>
 }

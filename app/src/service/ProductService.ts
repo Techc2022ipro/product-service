@@ -72,5 +72,13 @@ export const ProductService: ProductServiceInterface = {
 
   async fetchAllTagsService() {
     return await ProductRepositories.fetchAllTags();
+  },
+
+  async addLikesService(query) {
+    const product = await ProductRepositories.fetchById(query);
+    if(!product) throw new BadRequest();
+    const addedLikes = product.likes + 1;
+    if(!product.pid) throw new BadRequest();
+    return await ProductRepositories.addLikes({pid: product.pid, likes: addedLikes});
   }
 }
