@@ -26,7 +26,7 @@ router.get('/feeds', VerifyToken, feedsProducts);
 router.get('/products', VerifyToken, fetchProductsByUid);
 router.get('/tags', fetchAlltags);
 router.get('/tag/:slug', filterByTag);
-router.get('/:pid', VerifyToken, fetchProductById);
+router.get('/product/:pid', fetchProductById);
 router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);
 router.post('/comment', VerifyToken, createComments);

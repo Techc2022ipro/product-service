@@ -5,7 +5,7 @@ import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery,
 
 export type ProductControllerInterface = {
   fetchProductsController(query: FetchQuery): Promise<Product[] | null>;
-  fetchProductByIdController(query: FetchProductQuery): Promise<Product>;
+  fetchProductByIdController(query: number): Promise<Product>;
   fetchProductsByUidController(uid: number): Promise<Product[] | null>;
   feedsProductsController(user: User): Promise<Product[] | null>;
   searchProductsController(keyword: string, slug: string): Promise<Product[] | null>;
@@ -20,7 +20,7 @@ export type ProductControllerInterface = {
 
 export type ProductServiceInterface = {
   fetchProductsService(query: FetchQuery): Promise<Product[] | null>;
-  fetchProductByIdService(pid: number): Promise<Product | null>;
+  fetchProductByIdService(pid: number): Promise<Product>;
   fetchProductsByUidService(uid: number): Promise<Product[] | null>;
   createProductsService(query: Product): Promise<Product>;
   searchProductsService(query: SearchQuery): Promise<Product[] | null>

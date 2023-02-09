@@ -1,6 +1,4 @@
 #!/bin/bash
-echo "Running in NODE_ENV=$NODE_ENV"
-
 echo "initalize environment file"
 
 echo "Running npm install ..."

@@ -3,12 +3,16 @@ import helmet from 'helmet';
 import Logger from './libraries/libs/Logger';
 import router from './routes/index';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import path from 'path';
 
 const app = express();
-
 app.use(express.static('build'))
 app.use(cookieParser());
+app.use(cors({
+  origin: ["http://localhost:2000/api","http://localhost:4000", "https://look-book.net/"],
+  credentials: true
+}));
 app.use(helmet());
 app.use(express.json());
 app.use("/api", router);
