@@ -22,6 +22,9 @@ export const ProductRepositories: ProductRepositoryInterface = {
     const product = await prisma.product.findFirst({
       where: {
         pid
+      },
+      include: {
+        comment: true
       }
     })
     return product ? product : null;
@@ -142,6 +145,9 @@ export const ProductRepositories: ProductRepositoryInterface = {
       orderBy: {
         createdAt: "desc",
       },
+      include: {
+        comment: true
+      }
     })
     return products ? products : null;
   },
