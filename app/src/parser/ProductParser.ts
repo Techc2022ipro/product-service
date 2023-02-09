@@ -29,7 +29,6 @@ export const editProduct = async (req: Request, res: Response) => {
       query.quantity = parseInt(query.quantity);
       query.price = parseInt(query.price);
       query.pid = parseInt(query.pid);
-      console.log(query);
       return ProductController.editProductController(query);
     })
 }
