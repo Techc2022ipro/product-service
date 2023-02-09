@@ -18,6 +18,7 @@ export type Product = {
     price: number
     quantity: number
     uid: number
+    likes: number
     username: string
     image: string 
     tags?: string[]

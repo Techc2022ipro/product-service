@@ -172,5 +172,17 @@ export const ProductRepositories: ProductRepositoryInterface = {
   async fetchAllTags() {
     const tags = await prisma.tags.findMany();
     return tags ? tags : null;
+  },
+
+  async addLikes({pid, likes}) {
+    const product = await prisma.product.update({
+      where: {
+        pid,
+      },
+      data: {
+        likes,
+      }
+    })
+    return null; 
   }
 }

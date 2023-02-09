@@ -6,7 +6,6 @@ import Logger from '../libs/Logger';
 
 const VerifyToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.cookie;
-    console.log(token);
     if(!token){
       res.send({isVerified: false});
       return;

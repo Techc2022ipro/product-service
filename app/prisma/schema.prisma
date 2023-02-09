@@ -23,6 +23,7 @@ model Product {
   username              String      @db.VarChar(60)
   image                 String      @db.VarChar(256)
   tags                  String[]
+  likes                 Int         @default(0)
   comment               Comment[]
   createdAt             DateTime    @default(now()) 
   updatedAt             DateTime    @updatedAt

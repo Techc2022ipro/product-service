@@ -1,6 +1,5 @@
 import { ProductControllerInterface } from "@/interfaces/ProductInterfaces";
-import {BadRequest, NotFound, Unauthorized} from "@/libraries/libs/error/Errors";
-import {CommentsValidationSchema, CreateProductValidationSchema, FilterByTagValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
+import {BadRequest, NotFound, Unauthorized} from "@/libraries/libs/error/Errors"; import {CommentsValidationSchema, CreateProductValidationSchema, FilterByTagValidationSchema, SearchProductValidationSchema} from "@/schemas/ProductSchemas";
 import {ProductService} from "@/service/ProductService";
 import {S3Service} from "@/service/S3Service";
 
@@ -62,7 +61,8 @@ export const ProductController: ProductControllerInterface = {
         uid: query.uid,
         username: query.username,
         image: imageKey,
-        tags: query.tags
+        tags: query.tags,
+        likes: 0,
       }
       return await ProductService.createProductsService(product);
     },
@@ -121,5 +121,9 @@ export const ProductController: ProductControllerInterface = {
       const tags = await ProductService.fetchAllTagsService();
       if(!tags) throw new NotFound();
       return tags;
+    },
+
+    async addLikesController(query) {
+      return await ProductService.addLikesService(query);
     }
 }

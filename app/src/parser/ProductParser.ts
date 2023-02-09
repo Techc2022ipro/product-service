@@ -73,3 +73,9 @@ export const fetchAlltags = async (req: Request, res: Response) => {
     return await ProductController.fetchAllTagsController();
   })
 }
+
+export const addLikes = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'fetchAllTags', async() => {
+    return await ProductController.addLikesController(parseInt(req.params.pid));
+  })
+}
