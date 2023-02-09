@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static('build'))
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:3000","http://localhost:4000"],
+  origin: ["http://localhost:2000/api","http://localhost:4000", "https://look-book.net/"],
   credentials: true
 }));
 app.use(helmet());
