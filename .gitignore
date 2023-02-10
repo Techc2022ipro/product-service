@@ -1,8 +1,10 @@
 .vscode
-/app/node_modules
-/app/package-lock.json
-/app/package-lock.json
-/app/uploads
-/app/.env
-/app/.env.production
+app/node_modules
+app/package-lock.json
+app/package-lock.json
+app/uploads
+app/.env
+app/.env.production
+
+
 
