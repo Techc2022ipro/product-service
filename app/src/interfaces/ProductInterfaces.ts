@@ -1,4 +1,4 @@
-import { CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, ProductCommentQuery, SearchQuery, Tags, User } from "@/entities/product";
+import { CartDetail, CreateProductQuery, EditedProduct, EditProductQuery, FetchProductQuery, FetchQuery, Product, ProductCommentQuery, SearchQuery, Tags, User } from "@/entities/product";
 
 // have to clean the "null" 
 // have to write the interfaces in such a way that we catch the errors early on
@@ -15,6 +15,9 @@ export type ProductControllerInterface = {
   filterProductsByTagController(query: string): Promise<Product[]>;
   fetchAllTagsController(): Promise<Tags[]>;
   addLikesController(query: number): Promise<null>;
+  addProductToCartController(query: {uid: number, pid: number}): Promise<{message: string}>;
+  fetchUserCartController(query: number): Promise<CartDetail[] | {message: string}>;
+  fetchUserCartProductsController(query: number): Promise<Product[] | {message:string}>;
 }
 
 //service interface 
@@ -32,6 +35,9 @@ export type ProductServiceInterface = {
   fetchTagByNameService(query:string): Promise<Tags | null>;
   fetchAllTagsService(): Promise<Tags[] | null>
   addLikesService(query: number): Promise<null>;
+  addProductToCartService(query: {uid: number, pid: number}): Promise<{message: string}>;
+  fetchUserCartService(query: number): Promise<CartDetail[] | {message: string}> 
+  fetchUserCartProductsService(query: number):Promise<Product[] | {message: string}>
 }
 
 //repositories interface 
@@ -51,4 +57,7 @@ export type ProductRepositoryInterface = {
   fetchTagByName(query: string): Promise<Tags | null>;
   fetchAllTags(): Promise<Tags[] | null>;
   addLikes(query: {pid: number, likes: number}): Promise<null>
+  addProductToCart(query: {uid: number, pid: number}): Promise<{message: string}>;
+  fetchCartProductWithId(query: {pid:number, uid: number}): Promise<CartDetail | null>;
+  fetchUserCart(query: number): Promise<CartDetail[] | null>
 }

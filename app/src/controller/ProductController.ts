@@ -125,5 +125,22 @@ export const ProductController: ProductControllerInterface = {
 
     async addLikesController(query) {
       return await ProductService.addLikesService(query);
+    },
+
+    async addProductToCartController(query) {
+      if(!query) throw new BadRequest();
+      return await ProductService.addProductToCartService(query)
+    },
+    
+    async fetchUserCartController(query) {
+      if(!query) throw new BadRequest();
+      return await ProductService.fetchUserCartService(query);
+    },
+
+    async fetchUserCartProductsController(query) {
+      if(!query) throw new BadRequest();
+      const products = await ProductService.fetchUserCartProductsService(query);
+      if(!products) throw new NotFound();
+      return products;
     }
 }

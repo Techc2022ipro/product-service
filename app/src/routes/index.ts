@@ -1,5 +1,5 @@
 import VerifyToken from '@/libraries/middlewares/VerifyToken';
-import { createComments, createProducts, 
+import { addToCart, createComments, createProducts, 
   editProduct, 
   feedsProducts, 
   fetchAlltags, 
@@ -7,7 +7,9 @@ import { createComments, createProducts,
   fetchProducts, 
   fetchProductsByUid, 
   filterByTag, 
-  searchProducts} from '@/parser/ProductParser';
+  fetchUserCart,
+  searchProducts,
+  fetchUserCartProducts} from '@/parser/ProductParser';
 import { Router } from 'express';
 import multer from 'multer';
 import { addLikes } from '../parser/ProductParser';
@@ -29,7 +31,11 @@ router.get('/tags', fetchAlltags);
 router.get('/tag/:slug', filterByTag);
 router.get('/product/:pid', fetchProductById);
 router.get('/product/addlikes/:pid', addLikes);
+router.get('/cart/add/:pid', VerifyToken, addToCart);
+router.get('/cart', VerifyToken, fetchUserCart);
+router.get('/cart/products', VerifyToken, fetchUserCartProducts);
 router.post('/search/:slug', searchProducts);
 router.post('/create', [VerifyToken, upload.single('image')], createProducts);
 router.post('/comment', VerifyToken, createComments);
 router.patch('/edit/:id', [VerifyToken, upload.single('image')], editProduct);
+

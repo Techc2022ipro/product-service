@@ -184,5 +184,34 @@ export const ProductRepositories: ProductRepositoryInterface = {
       }
     })
     return null; 
-  }
+  },
+
+  async addProductToCart({pid, uid}) {
+    const addToCart = await prisma.cart.create({
+      data: {
+        pid,
+        uid
+      }
+    })
+    return {message: "Added Product to cart."}
+  },
+
+  async fetchCartProductWithId({pid, uid}) {
+    const productDetail = await prisma.cart.findFirst({
+      where: {
+        pid,
+        uid
+      }
+    })
+    return productDetail
+  },
+
+  async fetchUserCart(uid) {
+    const cart = await prisma.cart.findMany({
+      where: {
+        uid,
+      }
+    })
+    return cart ? cart : null;
+  },
 }
