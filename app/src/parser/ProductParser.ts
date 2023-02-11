@@ -75,7 +75,26 @@ export const fetchAlltags = async (req: Request, res: Response) => {
 }
 
 export const addLikes = async (req: Request, res: Response) => {
-  ErrorWrapper(res, 'fetchAllTags', async() => {
+  ErrorWrapper(res, 'addLikes', async() => {
     return await ProductController.addLikesController(parseInt(req.params.pid));
+  })
+}
+
+export const addToCart = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'addToCart', async() => {
+    const query = {uid: res.locals["user"].uid, pid: parseInt(req.params.pid)}
+    return await ProductController.addProductToCartController(query);
+  })
+}
+
+export const fetchUserCart = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'addToCart', async() => {
+    return await ProductController.fetchUserCartController(res.locals['user'].uid);
+  })
+}
+
+export const fetchUserCartProducts = async (req: Request, res: Response) => {
+  ErrorWrapper(res, 'addToCart', async() => {
+    return await ProductController.fetchUserCartProductsController(res.locals['user'].uid);
   })
 }

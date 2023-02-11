@@ -45,3 +45,11 @@ model Tags {
   createdAt             DateTime    @default(now())
   updatedAt             DateTime    @updatedAt
 }
+
+model Cart {
+  cartid                Int         @id @default(autoincrement())
+  pid                   Int
+  uid                   Int
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+}

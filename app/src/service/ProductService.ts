@@ -1,5 +1,7 @@
+import {Product} from "@/entities/product";
 import { ProductServiceInterface } from "@/interfaces/ProductInterfaces";
-import {BadRequest, InternalServerError, NotFound} from "@/libraries/libs/error/Errors";
+import {BadRequest, BaseError, InternalServerError, NotFound} from "@/libraries/libs/error/Errors";
+import {fetchUserCart} from "@/parser/ProductParser";
 import { ProductRepositories } from '../repositories/ProductRepository';
 
 export const ProductService: ProductServiceInterface = {
@@ -80,5 +82,36 @@ export const ProductService: ProductServiceInterface = {
     const addedLikes = product.likes + 1;
     if(!product.pid) throw new BadRequest();
     return await ProductRepositories.addLikes({pid: product.pid, likes: addedLikes});
+  },
+
+  async addProductToCartService(query) {
+    const product = await ProductRepositories.fetchById(query.pid);
+    if(!product) throw new BadRequest();
+    const productIsInCart = await ProductRepositories.fetchCartProductWithId(query);
+    if(productIsInCart) throw new BaseError(400, "You already have this product in your cart.")
+    return ProductRepositories.addProductToCart(query)
+  },
+
+  async fetchUserCartService(query) {
+    const cart = await ProductRepositories.fetchUserCart(query);
+    if(!cart) return {message: "Nothing to see here 🐔"};
+    return cart;
+  },
+
+  async fetchUserCartProductsService(query) {
+    const cart = await ProductRepositories.fetchUserCart(query);
+    if(!cart) {
+      return {message: "You have no cart products🐔."};
+    } 
+
+    const products: Product[] = await Promise.all(cart.map(async product => {
+     const prod = await ProductRepositories.fetchById(product.pid);
+     if(!prod) throw new BadRequest();
+     return prod;
+    }))
+    if(!products) {
+      return {message: "You have no cart products🐔."};
+    } 
+    return products;
   }
 }

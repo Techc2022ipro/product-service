@@ -97,3 +97,7 @@ export type Tags = {
   tag: string
 }
 
+export type CartDetail = {
+  pid: number
+  uid: number
+}
